@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<style>
+
+.has-search .form-control-feedback {
+    right: initial;
+    left: 0;
+    color: #ccc;
+}
+
+.has-search .form-control {
+    padding-right: 12px;
+    padding-left: 34px;
+}
+.has-search-fixpadding {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.has-search-borderradius-none {
+    border-radius: 0 !important;
+}
+</style>
+<body>
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-12'>
+        <h2>Bootstrap 3 List Group - Filter Search</h2>
+            <form>
+                <div class="form-group has-feedback has-search">
+                    <span class="glyphicon glyphicon-search form-control-feedback has-search-fixpadding"></span>
+                    <input class='form-control input-lg has-search-borderradius-none' type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                </div>
+                <ul id="myUL" class='list-group list-unstyled'>
+                    <li><a class='list-group-item list-group-item-action has-search-borderradius-none'>Adele</a></li>
+                    <li><a class='list-group-item list-group-item-action has-search-borderradius-none'>Agnes</a></li>
+
+                    <li><a class='list-group-item list-group-item-action has-search-borderradius-none'>Billy</a></li>
+                    <li><a class='list-group-item list-group-item-action has-search-borderradius-none'>Bob</a></li>
+
+                    <li><a class='list-group-item list-group-item-action has-search-borderradius-none'>Calvin</a></li>
+                    <li><a class='list-group-item list-group-item-action has-search-borderradius-none'>Christina</a></li>
+                    <li><a class='list-group-item list-group-item-action has-search-borderradius-none'>Cindy</a></li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
